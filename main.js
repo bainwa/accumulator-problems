@@ -30,9 +30,13 @@ For example, the tests require that to complete this challenge, your function mu
 results on the index page in the browser.
 */
 
-
-
-
+function sum (arr) {
+  let result = 0
+  for (var i = 0; i < arr.length; i++) {
+  result += arr[i]
+  }
+  return result
+}
 
 
 
@@ -49,7 +53,13 @@ Example: if you pass it "abc" then it should return "aabbcc"
 */
 
 
-
+function doubleLetters (str) {
+  let result = ''
+  for (var i = 0; i < str.length; i++) {
+    result += str[i] + str[i]
+  }
+  return result
+}
 
 
 
@@ -68,7 +78,13 @@ Example: if you pass it [1,2,3] then it should return [2,4,6]
 */
 
 
-
+function doubleNumbers (arr) {
+  let result = []
+  for (var i = 0; i < arr.length; i++) {
+    result.push(arr[i]*2)
+  }
+  return result
+}
 
 
 
@@ -89,7 +105,13 @@ Examples:
 - if you call multiplyNumbers([1,2,3], 5) you'd get [5,10,15]
 */
 
-
+function multiplyNumbers(arr, multiplier) {
+  let result = []
+  for (var i = 0; i < arr.length; i++) {
+    result.push(arr[i] * multiplier)
+  }
+  return result
+}
 
 
 
@@ -110,7 +132,14 @@ Example: if you pass it ["a", "b", "c"] and ["d", "e", "f"] then it should retur
 NOTE: you can assume each input will be the same length
 */
 
-
+function interleave (arr1, arr2) {
+  let result = []
+  for (var i = 0; i < arr1.length; i++) {
+    result.push(arr1[i])
+    result.push(arr2[i])
+  }
+  return result
+}
 
 
 
@@ -131,7 +160,11 @@ Example: if you pass it 4 and "Hello" then it should return ["Hello", "Hello", "
 */
 
 
-
+function createRange (span, str) {
+  let result = new Array(span)
+  result.fill(str)
+  return result
+}
 
 
 
@@ -149,7 +182,13 @@ Example:
 If you pass it ["quick", "brown", "fox"] then it should return { "quick": 0, "brown": 1, "fox": 2 }
 */
 
-
+function flipArray (arr) {
+  let result = {}
+  for (var i = 0; i < arr.length; i++) {
+    result[arr[i]] = i
+  }
+  return result
+}
 
 
 
@@ -169,7 +208,13 @@ If you pass it [[2014, "Horse"], [2015, "Sheep"]] then it should return { 2014: 
 
 */
 
-
+function arraysToObject (arr) {
+  let result = {}
+  for (var i = 0; i < arr.length; i++) {
+      result[arr[i][0]] = arr[i][1]
+  }
+  return result
+}
 
 
 
@@ -189,13 +234,13 @@ Example:
 If you pass it "hello" then it should return "olleh"
 */
 
-
-
-
-
-
-
-
+function reverseString (str) {
+  let result = ''
+  for (var i = str.length -1; i >= 0; i--) {
+      result += str.charAt(i)
+  }
+  return result
+}
 
 
 
@@ -214,10 +259,23 @@ If you pass it "yay" then it should return false because it's odd
 If you pass it "heehaw" then it should return false because "hee" doesn't equal "haw"
 */
 
-
-
-
-
+function repeats (str) {
+  let result = true
+  let firstHalf = str.slice(0, str.length/2)
+  let secondHalf = str.slice(str.length/2, str.length)
+  if (str.length % 2 == 1) {
+      result = false
+  }
+  else if (str.length % 2 == 0) {
+      if (firstHalf == secondHalf) {
+          result = true
+      }
+      else if (firstHalf !== secondHalf) {
+          result = false
+      }
+  }
+  return result
+}
 
 
 
@@ -233,11 +291,13 @@ Example:
 If you pass it "abcdef" then it should return "ace" because those represent every other letter
 */
 
-
-
-
-
-
+function everyOther (str) {
+  let result = ''
+  for (var i = 0; i < str.length; i += 2) {
+      result += str.charAt(i)
+  }
+  return result
+}
 
 
 /*
@@ -253,11 +313,15 @@ If you pass "aaa" it should return true
 If you pass "aba" it should return false
 */
 
-
-
-
-
-
+function allEqual (str) {
+  let result = true
+  for (var i = 0; i < str.length; i++) {
+      if (str.charAt(0) !== str.charAt(i)) {
+          return false
+      }
+  }
+  return result
+}
 
 
 /*
@@ -273,10 +337,13 @@ If you pass "45" it should return 9
 If you pass "246" it should return 12
 */
 
-
-
-
-
+function sumLetters (str) {
+  let result = 0
+  for (var i = 0; i < str.length; i++) {
+      result += Number(str.charAt(i))
+  }
+  return result
+}
 
 
 
@@ -293,12 +360,16 @@ If you pass "you" it should return 2
 */
 
 
-
-
-
-
-
-
+function countVowels (str) {
+  let result = 0
+  let vowels = ['a', 'e', 'i', 'o', 'u']
+  for (var i = 0; i < str.length; i++) {
+      if (vowels.includes(str.charAt(i))) {
+          result++
+      }
+  }
+  return result
+}
 
 
 /*
@@ -316,10 +387,13 @@ NOTE: do not use the builtin `split` method
 */
 
 
-
-
-
-
+function split (str) {
+  let result = []
+  for (var i = 0; i < str.length; i++) {
+      result.push(str[i])
+  }
+  return result
+}
 
 
 /*
@@ -336,12 +410,14 @@ Example:
 If you pass "Hello" it should return [ 72, 101, 108, 108, 111 ]
 */
 
-
-
-
-
-
-
+function getCodePoints (str) {
+  let result = []
+  for (var i = 0; i < str.length; i++) {
+      let codeValue = str.codePointAt(i)
+      result.push(codeValue)
+  }
+  return result
+}
 
 /*
 ----------------------------------------
@@ -357,10 +433,13 @@ If you pass "Hello" it should return {H: 0, e: 1, l: 3, o: 4}
 */
 
 
-
-
-
-
+function letterMap (str) {
+  let result = {}
+  for (var i = 0; i < str.length; i++) {
+      result[str[i]] = i
+      }
+  return result
+}
 
 
 /*
